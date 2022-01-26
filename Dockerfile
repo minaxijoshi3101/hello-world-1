@@ -1,7 +1,6 @@
-# Pull base image 
-FROM tomcat:8-jre8 
+FROM openjdk:8-jre-alpine3.7
+WORKDIR /root/
+COPY /target/*.jar .
 
-# Maintainer 
-MAINTAINER "Minaxi Joshi"
 EXPOSE 5000
-COPY ./webapp.war /usr/local/tomcat/webapps
+ENTRYPOINT ["java", "-jar", "./app.jar"]
