@@ -1,6 +1,5 @@
-FROM openjdk:8-jre-alpine3.7
+FROM tomcat:jdk8-openjdk-slim-buster
 WORKDIR /root/
-COPY /target/*.jar .
-
+COPY /target/*.war .
 EXPOSE 5000
-ENTRYPOINT ["java", "-jar", "./app.jar"]
+CMD ["catalina.sh","run"]
